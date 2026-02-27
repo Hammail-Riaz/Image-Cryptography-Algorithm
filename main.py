@@ -91,6 +91,7 @@ class Image_Cryptography:
         self._set_seed(self.key)
 
         self.img = Image.open(image_path)
+        self.img = self.img.convert('RGB')
         pixels = self.img.load()
         width, height = self.img.size
 
@@ -122,6 +123,7 @@ class Image_Cryptography:
         5. Save decrypted image as 'image_decrypted.png'.
         """
         self.img = Image.open(image_path)
+        self.img = self.img.convert('RGB')
         self.key = self._extract_key(self.img)
         self._set_seed(self.key)
 
